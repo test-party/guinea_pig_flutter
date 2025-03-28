@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'src/button.dart';
+import 'src/checkbox.dart';
 
 void main() {
   runApp(const MyApp());
@@ -29,13 +31,17 @@ class MainPage extends StatefulWidget {
 class _MainPageState extends State<MainPage> {
   // Placeholder functions for button clicks
   void _onOpenButtonScreenClicked() {
-    // Navigate to Button Test screen when implemented
-    debugPrint('Button Test clicked');
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => const ButtonScreen()),
+    );
   }
 
   void _onOpenCheckboxScreenClicked() {
-    // Navigate to Checkbox Test screen when implemented
-    debugPrint('Checkbox Test clicked');
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => const CheckboxScreen()),
+    );
   }
 
   void _onOpenDatePickerScreenClicked() {
