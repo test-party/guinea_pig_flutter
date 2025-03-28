@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'src/button.dart';
 import 'src/checkbox.dart';
+import 'src/date_picker.dart';
+import 'src/images.dart';
 
 void main() {
   runApp(const MyApp());
@@ -45,13 +47,17 @@ class _MainPageState extends State<MainPage> {
   }
 
   void _onOpenDatePickerScreenClicked() {
-    // Navigate to Date Picker Test screen when implemented
-    debugPrint('Date Picker Test clicked');
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => const DatePickerScreen()),
+    );
   }
 
   void _onOpenImageScreenClicked() {
-    // Navigate to Image Test screen when implemented
-    debugPrint('Image Test clicked');
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => const ImageScreen()),
+    );
   }
 
   void _onOpenLinkScreenClicked() {
