@@ -4,6 +4,7 @@ import 'src/checkbox.dart';
 import 'src/date_picker.dart';
 import 'src/images.dart';
 import 'src/link.dart';
+import 'src/progress_indicator.dart';
 
 void main() {
   runApp(const MyApp());
@@ -69,8 +70,10 @@ class _MainPageState extends State<MainPage> {
   }
 
   void _onOpenProgressIndicatorScreenClicked() {
-    // Navigate to Progress Indicator Test screen when implemented
-    debugPrint('Progress Indicator Test clicked');
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => const ProgressIndicatorScreen()),
+    );
   }
 
   void _onOpenSheetScreenClicked() {
