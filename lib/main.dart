@@ -3,6 +3,7 @@ import 'src/button.dart';
 import 'src/checkbox.dart';
 import 'src/date_picker.dart';
 import 'src/images.dart';
+import 'src/link.dart';
 
 void main() {
   runApp(const MyApp());
@@ -61,8 +62,10 @@ class _MainPageState extends State<MainPage> {
   }
 
   void _onOpenLinkScreenClicked() {
-    // Navigate to Link Test screen when implemented
-    debugPrint('Link Test clicked');
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => const LinkScreen()),
+    );
   }
 
   void _onOpenProgressIndicatorScreenClicked() {
