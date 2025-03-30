@@ -9,6 +9,7 @@ import 'src/sheet.dart';
 import 'src/slider.dart';
 import 'src/stepper.dart';
 import 'src/dynamic_type.dart';
+import 'src/text_input.dart';
 
 void main() {
   runApp(const MyApp());
@@ -109,8 +110,10 @@ class _MainPageState extends State<MainPage> {
   }
 
   void _onOpenTextInputScreenClicked() {
-    // Navigate to Text Input Test screen when implemented
-    debugPrint('Text Input Test clicked');
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => const TextInputScreen()),
+    );
   }
 
   void _onOpenTextScreenClicked() {
