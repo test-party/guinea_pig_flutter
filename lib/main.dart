@@ -10,6 +10,7 @@ import 'src/slider.dart';
 import 'src/stepper.dart';
 import 'src/dynamic_type.dart';
 import 'src/text_input.dart';
+import 'src/video.dart';
 
 void main() {
   runApp(const MyApp());
@@ -116,14 +117,14 @@ class _MainPageState extends State<MainPage> {
     );
   }
 
-  void _onOpenTextScreenClicked() {
-    // Navigate to Text Test screen when implemented
-    debugPrint('Text Test clicked');
-  }
-
   void _onOpenVideoScreenClicked() {
-    // Navigate to Video Test screen when implemented
-    debugPrint('Video Test clicked');
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder:
+            (context) => const VideoScreen(),
+      ),
+    );
   }
 
   @override
@@ -193,11 +194,6 @@ class _MainPageState extends State<MainPage> {
               ElevatedButton(
                 onPressed: _onOpenTextInputScreenClicked,
                 child: const Text('Text Input Test'),
-              ),
-              const SizedBox(height: 25),
-              ElevatedButton(
-                onPressed: _onOpenTextScreenClicked,
-                child: const Text('Text Test'),
               ),
               const SizedBox(height: 25),
               ElevatedButton(
