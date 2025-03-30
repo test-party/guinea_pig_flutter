@@ -7,6 +7,7 @@ import 'src/link.dart';
 import 'src/progress_indicator.dart';
 import 'src/sheet.dart';
 import 'src/slider.dart';
+import 'src/stepper.dart';
 
 void main() {
   runApp(const MyApp());
@@ -93,8 +94,10 @@ class _MainPageState extends State<MainPage> {
   }
 
   void _onOpenStepperScreenClicked() {
-    // Navigate to Stepper Test screen when implemented
-    debugPrint('Stepper Test clicked');
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => const StepperScreen()),
+    );
   }
 
   void _onOpenTextInputScreenClicked() {
