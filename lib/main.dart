@@ -5,6 +5,7 @@ import 'src/date_picker.dart';
 import 'src/images.dart';
 import 'src/link.dart';
 import 'src/progress_indicator.dart';
+import 'src/sheet.dart';
 
 void main() {
   runApp(const MyApp());
@@ -77,8 +78,10 @@ class _MainPageState extends State<MainPage> {
   }
 
   void _onOpenSheetScreenClicked() {
-    // Navigate to Sheet Test screen when implemented
-    debugPrint('Sheet Test clicked');
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => const SheetScreen()),
+    );
   }
 
   void _onOpenStepperScreenClicked() {
