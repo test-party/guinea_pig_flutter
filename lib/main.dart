@@ -6,6 +6,7 @@ import 'src/images.dart';
 import 'src/link.dart';
 import 'src/progress_indicator.dart';
 import 'src/sheet.dart';
+import 'src/slider.dart';
 
 void main() {
   runApp(const MyApp());
@@ -84,6 +85,13 @@ class _MainPageState extends State<MainPage> {
     );
   }
 
+  void _onOpenSliderScreenClicked() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => const SliderScreen()),
+    );
+  }
+
   void _onOpenStepperScreenClicked() {
     // Navigate to Stepper Test screen when implemented
     debugPrint('Stepper Test clicked');
@@ -151,6 +159,11 @@ class _MainPageState extends State<MainPage> {
               ElevatedButton(
                 onPressed: _onOpenSheetScreenClicked,
                 child: const Text('Sheet Test'),
+              ),
+              const SizedBox(height: 25),
+              ElevatedButton(
+                onPressed: _onOpenSliderScreenClicked,
+                child: const Text('Slider Test'),
               ),
               const SizedBox(height: 25),
               ElevatedButton(
