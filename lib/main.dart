@@ -8,6 +8,7 @@ import 'src/progress_indicator.dart';
 import 'src/sheet.dart';
 import 'src/slider.dart';
 import 'src/stepper.dart';
+import 'src/dynamic_type.dart';
 
 void main() {
   runApp(const MyApp());
@@ -55,6 +56,13 @@ class _MainPageState extends State<MainPage> {
     Navigator.push(
       context,
       MaterialPageRoute(builder: (context) => const DatePickerScreen()),
+    );
+  }
+
+  void _onOpenDynamicTypeScreenClicked() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => const DynamicTypeScreen()),
     );
   }
 
@@ -142,6 +150,11 @@ class _MainPageState extends State<MainPage> {
               ElevatedButton(
                 onPressed: _onOpenDatePickerScreenClicked,
                 child: const Text('Date Picker Test'),
+              ),
+              const SizedBox(height: 25),
+              ElevatedButton(
+                onPressed: _onOpenDynamicTypeScreenClicked,
+                child: const Text('Dynamic Type Test'),
               ),
               const SizedBox(height: 25),
               ElevatedButton(
