@@ -267,6 +267,17 @@ class _CheckboxesScreenState extends State<CheckboxScreen> {
                     },
                     child: Row(
                       children: [
+                        Semantics(
+                          checked: isChecked,
+                          child: Checkbox(
+                            value: isChecked,
+                            onChanged: (bool? value) {
+                              setState(() {
+                                isChecked = value ?? false;
+                              });
+                            },
+                          ),
+                        ),
                         GestureDetector(
                           onTap: () {
                             setState(() {
