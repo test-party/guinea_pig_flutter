@@ -268,12 +268,12 @@ class _CheckboxesScreenState extends State<CheckboxScreen> {
                     child: Row(
                       children: [
                         Semantics(
-                          checked: isChecked,
+                          checked: isCheckedBad,
                           child: Checkbox(
-                            value: isChecked,
+                            value: isCheckedBad,
                             onChanged: (bool? value) {
                               setState(() {
-                                isChecked = value ?? false;
+                                isCheckedBad = value ?? false;
                               });
                             },
                           ),
@@ -281,7 +281,7 @@ class _CheckboxesScreenState extends State<CheckboxScreen> {
                         GestureDetector(
                           onTap: () {
                             setState(() {
-                              isChecked = !isChecked;
+                              isCheckedBad = !isCheckedBad;
                             });
                           },
                           child: const Text("Accept Terms"),
