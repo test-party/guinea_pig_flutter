@@ -16,7 +16,7 @@ class _CheckboxesScreenState extends State<CheckboxScreen> {
   bool isEmailCheckedBad = false;
   bool isPhoneCheckedBad = false;
   bool isTextCheckedBad = false;
-  
+
   final Color darkGreen = const Color.fromRGBO(0, 102, 0, 1);
   final Color darkRed = const Color.fromRGBO(220, 20, 60, 1);
 
@@ -27,9 +27,7 @@ class _CheckboxesScreenState extends State<CheckboxScreen> {
     final badColor = isDarkMode ? Colors.red : darkRed;
 
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Checkboxes'),
-      ),
+      appBar: AppBar(title: const Text('Checkboxes')),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(16.0),
@@ -41,7 +39,7 @@ class _CheckboxesScreenState extends State<CheckboxScreen> {
                 style: Theme.of(context).textTheme.bodyMedium,
               ),
               const SizedBox(height: 16),
-              
+
               // Good Examples Section
               Semantics(
                 header: true,
@@ -53,25 +51,21 @@ class _CheckboxesScreenState extends State<CheckboxScreen> {
                   ),
                 ),
               ),
-              Divider(
-                height: 2.0,
-                thickness: 2.0,
-                color: goodColor,
-              ),
+              Divider(height: 2.0, thickness: 2.0, color: goodColor),
               const SizedBox(height: 16),
-              
+
               // First Good Example - Single Checkbox
               Semantics(
                 header: true,
                 child: Text(
                   "Good Example Single Checkbox",
-                  style: Theme.of(context).textTheme.titleSmall?.copyWith(
-                    fontWeight: FontWeight.bold,
-                  ),
+                  style: Theme.of(
+                    context,
+                  ).textTheme.titleSmall?.copyWith(fontWeight: FontWeight.bold),
                 ),
               ),
               const SizedBox(height: 8),
-              
+
               MergeSemantics(
                 child: Row(
                   children: [
@@ -97,7 +91,7 @@ class _CheckboxesScreenState extends State<CheckboxScreen> {
                   ],
                 ),
               ),
-              
+
               ExpansionTile(
                 title: const Text("Details"),
                 expandedCrossAxisAlignment: CrossAxisAlignment.start,
@@ -116,24 +110,24 @@ class _CheckboxesScreenState extends State<CheckboxScreen> {
                 ],
               ),
               const SizedBox(height: 16),
-              
+
               // Second Good Example - Checkbox Group
               Semantics(
                 header: true,
                 child: Text(
                   "Good Example Checkbox Group",
-                  style: Theme.of(context).textTheme.titleSmall?.copyWith(
-                    fontWeight: FontWeight.bold,
-                  ),
+                  style: Theme.of(
+                    context,
+                  ).textTheme.titleSmall?.copyWith(fontWeight: FontWeight.bold),
                 ),
               ),
               const SizedBox(height: 8),
-              
+
               const Align(
                 alignment: Alignment.centerLeft,
                 child: Text("Preferred contact method(s):"),
               ),
-              
+
               Semantics(
                 label: "Preferred contact method(s):",
                 child: Column(
@@ -217,7 +211,7 @@ class _CheckboxesScreenState extends State<CheckboxScreen> {
                   ],
                 ),
               ),
-              
+
               ExpansionTile(
                 title: const Text("Details"),
                 expandedCrossAxisAlignment: CrossAxisAlignment.start,
@@ -236,7 +230,7 @@ class _CheckboxesScreenState extends State<CheckboxScreen> {
                 ],
               ),
               const SizedBox(height: 16),
-              
+
               // Bad Examples Section
               Semantics(
                 header: true,
@@ -248,25 +242,21 @@ class _CheckboxesScreenState extends State<CheckboxScreen> {
                   ),
                 ),
               ),
-              Divider(
-                height: 2.0,
-                thickness: 2.0,
-                color: badColor,
-              ),
+              Divider(height: 2.0, thickness: 2.0, color: badColor),
               const SizedBox(height: 16),
-              
+
               // First Bad Example - Single Checkbox
               Semantics(
                 header: true,
                 child: Text(
                   "Bad Example Single Checkbox",
-                  style: Theme.of(context).textTheme.titleSmall?.copyWith(
-                    fontWeight: FontWeight.bold,
-                  ),
+                  style: Theme.of(
+                    context,
+                  ).textTheme.titleSmall?.copyWith(fontWeight: FontWeight.bold),
                 ),
               ),
               const SizedBox(height: 8),
-              
+
               Row(
                 children: [
                   TextButton(
@@ -277,18 +267,31 @@ class _CheckboxesScreenState extends State<CheckboxScreen> {
                     },
                     child: Row(
                       children: [
-                        Icon(
-                          isCheckedBad ? Icons.check_box : Icons.check_box_outline_blank,
-                          size: 24,
+                        Semantics(
+                          checked: isCheckedBad,
+                          child: Checkbox(
+                            value: isCheckedBad,
+                            onChanged: (bool? value) {
+                              setState(() {
+                                isCheckedBad = value ?? false;
+                              });
+                            },
+                          ),
                         ),
-                        const SizedBox(width: 8),
-                        const Text("Accept Terms"),
+                        GestureDetector(
+                          onTap: () {
+                            setState(() {
+                              isCheckedBad = !isCheckedBad;
+                            });
+                          },
+                          child: const Text("Accept Terms"),
+                        ),
                       ],
                     ),
                   ),
                 ],
               ),
-              
+
               ExpansionTile(
                 title: const Text("Details"),
                 expandedCrossAxisAlignment: CrossAxisAlignment.start,
@@ -307,24 +310,24 @@ class _CheckboxesScreenState extends State<CheckboxScreen> {
                 ],
               ),
               const SizedBox(height: 16),
-              
+
               // Second Bad Example - Checkbox Group
               Semantics(
                 header: true,
                 child: Text(
                   "Bad Example Checkbox Group",
-                  style: Theme.of(context).textTheme.titleSmall?.copyWith(
-                    fontWeight: FontWeight.bold,
-                  ),
+                  style: Theme.of(
+                    context,
+                  ).textTheme.titleSmall?.copyWith(fontWeight: FontWeight.bold),
                 ),
               ),
               const SizedBox(height: 8),
-              
+
               const Align(
                 alignment: Alignment.centerLeft,
                 child: Text("Preferred contact method(s):"),
               ),
-              
+
               // No semantics group wrapper
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -391,7 +394,7 @@ class _CheckboxesScreenState extends State<CheckboxScreen> {
                   ),
                 ],
               ),
-              
+
               ExpansionTile(
                 title: const Text("Details"),
                 expandedCrossAxisAlignment: CrossAxisAlignment.start,
