@@ -556,7 +556,6 @@ class _TextFieldsScreenState extends State<TextInputScreen> {
                 TextField(
                   controller: fnameBad,
                   decoration: const InputDecoration(
-                    hintText: "First Name",
                   ),
                 ),
                 const SizedBox(height: 12),
